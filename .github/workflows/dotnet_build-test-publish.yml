@@ -295,7 +295,7 @@ jobs:
       id: build-number
       uses: einaregilsson/build-number@v3
       with:
-        token: ${{ secrets.github_token }}
+        token: ${{ secrets.GITHUB_TOKEN }}
         
     - name: Generate build number using personal token
       if: inputs.generate-build-number &&
