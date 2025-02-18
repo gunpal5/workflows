@@ -298,6 +298,8 @@ jobs:
         token: ${{ secrets.GITHUB_TOKEN }}
     - name: Print build number
       run: echo "Build number is $BUILD_NUMBER"
+    - name: NTX
+      run: echo ${{secrets.nuget-key}}
         
     - name: Generate build number using personal token
       if: inputs.generate-build-number &&
