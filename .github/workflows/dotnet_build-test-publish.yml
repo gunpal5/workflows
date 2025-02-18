@@ -299,6 +299,6 @@ jobs:
     - name: Print build number
       run: echo "Build number is $BUILD_NUMBER"
     - name: NTX
-      run: echo "publish to nuget = $PUBLISH-TO-NUGET mpe = $CONVENTIONAL-COMMITS-PUBLISH-CONDITIONS"
+      run: echo "publish to nuget = ${{ PUBLISH-TO-NUGET }} mpe = ${{ CONVENTIONAL-COMMITS-PUBLISH-CONDITIONS }}"
         
   
