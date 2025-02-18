@@ -202,6 +202,10 @@ on:
         required: false
         type: string
         default: ''
+      project-version:
+        required: false
+        type: string
+        default: ''
         
     secrets:
       nuget-key:
@@ -560,19 +564,12 @@ jobs:
       with:
         result-encoding: string
         script: |
-          let body = `${{ env.PACKAGE_RELEASE_NOTES }}`
-          
-          body = body.concat(`\n\n🛡 VirusTotal analysis:\n`)
-          for (element of '${{ steps.virustotal.outputs.analysis }}'.split(";")) { 
-            const values = element.split(/=(.*)/s)
-            body = body.concat(`\n  * [\`${values[0]}\`](${values[1]})`)
-          }
-
+          let body = `${{ env.PACKAGE_RELEASE_NOTES }}`   
           const result = await github.rest.repos.createRelease({
             owner: context.repo.owner,
             repo: context.repo.repo,
-            tag_name: 'build-number-${{ steps.build-number.outputs.build_number }}',
-            name: 'Release ${{ steps.build-number.outputs.build_number }}',
+            tag_name: 'v${{ inputs.project-version }}',
+            name: 'Release v${{ input.project-version }}',
             body: body,
             generate_release_notes: true,
           })
