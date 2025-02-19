@@ -569,7 +569,7 @@ jobs:
             owner: context.repo.owner,
             repo: context.repo.repo,
             tag_name: 'v${{ inputs.project-version }}',
-            name: 'Release v${{ inputs.project-version }}',
+            name: 'v${{ inputs.project-version }}',
             body: body,
             generate_release_notes: true,
           })
