@@ -559,7 +559,7 @@ jobs:
           inputs.create-release &&          
           env.CONVENTIONAL-COMMITS-PUBLISH-CONDITIONS == 'true'
       id: create_release
-      uses: actions/github-script@v6
+      uses: actions/github-script@v8
       with:
         result-encoding: string
         script: |
